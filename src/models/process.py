@@ -1,4 +1,14 @@
 from dataclasses import dataclass, field
+from enum import Enum
+from collections import deque
+
+
+class ProcessState(Enum):
+    READY = "READY"
+    RUNNING = "RUNNING"
+    WAITING = "WAITING"
+    FINISHED = "FINISHED"
+
 
 @dataclass
 class Process:
@@ -7,39 +17,30 @@ class Process:
 
     Attributes:
         pid: Process identifier
+        state: current process state
         arrival_time: Time when process arrives in the system
-        burst_time: Total CPU execution time required
-        remaining_time: Remaining CPU time to finish execution
+        cpu_bursts: queq of CPU execution times
+        io_bursts: queq of waitings for IO
         start_time: First time process gets CPU
         completion_time: Time when process finishes execution
         waiting_time: Total time spent waiting in ready queue
-        turnaround_time: Total time from arrival to completion
         response_time: Time from arrival to first CPU access
-        is_started: Whether process has started execution
-        is_finished: Whether process has completed execution
     """
     pid: int
     arrival_time: float
-    burst_time: float
 
-    remaining_time: float = field(init=False)
+    cpu_bursts: deque[float]
+    io_bursts: deque[float]
 
     start_time: float = field(default=None)
     completion_time: float = field(default=None)
-
-    waiting_time: float = field(default=0.0)
-    turnaround_time: float = field(default=0.0)
     response_time: float = field(default=None)
 
-    is_started: bool = field(default=False)
-    is_finished: bool = field(default=False)
+    state: ProcessState = ProcessState.READY
 
-    def __post_init__(self):
-        self.remaining_time = self.burst_time
+    def current_cpu(self) -> int:
+        return self.cpu_bursts[0] if self.cpu_bursts else 0
 
-    def get_process_on_CPU(arrival_time, self):
-        self.arrival_time = arrival_time
-    
-    @property
-    def finished(self) -> bool:
-        return self.is_finished
+    def is_finished(self) -> bool:
+        return self.state == ProcessState.FINISHED
+
