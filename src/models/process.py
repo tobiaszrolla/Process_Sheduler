@@ -27,14 +27,14 @@ class Process:
         response_time: Time from arrival to first CPU access
     """
     pid: int
-    arrival_time: float
+    arrival_time: int
 
-    cpu_bursts: deque[float]
-    io_bursts: deque[float]
+    cpu_bursts: deque[int]
+    io_bursts: deque[int]
 
-    start_time: float = field(default=None)
-    completion_time: float = field(default=None)
-    response_time: float = field(default=None)
+    start_time: int = field(default=None)
+    completion_time: int = field(default=None)
+    response_time: int = field(default=None)
 
     state: ProcessState = ProcessState.READY
 

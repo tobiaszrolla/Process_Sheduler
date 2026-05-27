@@ -15,19 +15,6 @@ class ProcessList:
     def move(self, p, src, dst):
         src.remove(p)
         dst.append(p)
-
-    def merge_with_new_pid(self, other):
-
-        merged = ProcessList()
-
-        merged.ready = self.ready.copy()
-
-        offset = len(self.ready)
-
-        for process in other.ready:
-            process.pid += offset
-            merged.ready.append(process)
-
         
     def merge(self, other):
         merged = ProcessList()
