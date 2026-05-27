@@ -1,6 +1,6 @@
 from src.models.processList import ProcessList
 import json
-def safeDataReady(process_lis: ProcessList, path: str):
+def saveDataReady(process_lis: ProcessList, path: str):
     data = []
     for process in process_lis.ready:
         data.append({

@@ -1,14 +1,14 @@
 import os
 import json
-from src.data_prep.data_safe_ready import safeDataReady
+from src.data_prep.data_save_ready import saveDataReady
 from src.data_prep.data_generation import gererateProcesess
 from src.models.processList import ProcessList
 from src.models.process import Process
 
 def test_dataSefeReady():
-    path = "./test_safe.json"
+    path = "./test_save.json"
     p = gererateProcesess(10, 3, [1,3], [1,3], 8)
-    safeDataReady(p, path)
+    saveDataReady(p, path)
 
     assert os.path.exists(path)
 
