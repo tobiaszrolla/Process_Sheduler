@@ -22,13 +22,13 @@ def test_processList_init():
     )
     p_list = ProcessList()
 
-    p_list.add_ready(p)
-    p_list.add_ready(p2)
-    p_list.add_ready(p3)
+    p_list.add_incoming(p)
+    p_list.add_incoming(p2)
+    p_list.add_incoming(p3)
 
-    assert p_list.ready[0] == p
-    assert p_list.ready[1] == p2
-    assert p_list.ready[2] == p3
+    assert p_list.incoming[0] == p
+    assert p_list.incoming[1] == p2
+    assert p_list.incoming[2] == p3
 
 def test_processList_change():
     p = Process(
@@ -51,12 +51,12 @@ def test_processList_change():
     )
     p_list = ProcessList()
 
-    p_list.add_ready(p)
-    p_list.add_ready(p2)
-    p_list.add_ready(p3)
+    p_list.add_incoming(p)
+    p_list.add_incoming(p2)
+    p_list.add_incoming(p3)
 
-    p_list.move(p, p_list.ready, p_list.waiting)
+    p_list.move(p, p_list.incoming, p_list.waiting)
     assert p_list.waiting[0] == p
-    assert p_list.ready[0] == p2
-    assert p_list.ready[1] == p3
+    assert p_list.incoming[0] == p2
+    assert p_list.incoming[1] == p3
     

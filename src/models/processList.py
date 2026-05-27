@@ -6,9 +6,10 @@ class ProcessList:
         self.ready = []
         self.waiting = []
         self.finish = []
+        self.incoming = []
 
-    def add_ready(self, p):
-        self.ready.append(p)
+    def add_incoming(self, p):
+        self.incoming.append(p)
 
     def move(self, p, src, dst):
         src.remove(p)

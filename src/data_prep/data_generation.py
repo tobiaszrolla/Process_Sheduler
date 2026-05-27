@@ -28,7 +28,7 @@ def gererateProcesess(
                     arrival_time=uniform(0, max_arr_time),
                     cpu_bursts=cpu_bursts,
                     io_bursts=io_bursts)
-        p_list.add_ready(p)
+        p_list.add_incoming(p)
 
     return p_list   
     

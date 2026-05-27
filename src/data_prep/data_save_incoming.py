@@ -1,8 +1,8 @@
 from src.models.processList import ProcessList
 import json
-def saveDataReady(process_lis: ProcessList, path: str):
+def saveDataIncoming(process_lis: ProcessList, path: str):
     data = []
-    for process in process_lis.ready:
+    for process in process_lis.incoming:
         data.append({
             "pid": process.pid,
             "arrival_time": process.arrival_time,
