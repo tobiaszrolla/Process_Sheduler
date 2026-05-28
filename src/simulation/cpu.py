@@ -1,6 +1,6 @@
 from src.models.process import Process, ProcessState
 
-def execute_cpu_step(process: Process, current_time: float, quantum: float) -> float:
+def execute_cpu_step(process: Process, current_time: int, quantum=1) -> int:
 
     if process.is_finished():
         return 0

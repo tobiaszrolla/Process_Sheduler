@@ -4,7 +4,7 @@ from src.models.process import Process, ProcessState
 from src.models.process import Process, ProcessState
 
 
-def execute_io_step(process: Process, delta_time: float):
+def execute_io_step(process: Process, delta_time=1):
     if process.state != ProcessState.WAITING:
         return
 

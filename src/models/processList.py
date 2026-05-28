@@ -1,4 +1,5 @@
 from random import shuffle
+from src.models.process import ProcessState
 class ProcessList:
     '''
         Class where state of processes is stored
@@ -8,6 +9,16 @@ class ProcessList:
         self.waiting = []
         self.finish = []
         self.incoming = []
+
+    '''
+        Helpers for moving process in lists
+    '''
+    def move_to_ready(self, p, src):
+        self.move(p, src, self.ready)
+    def move_to_finish(self, p, src):
+        self.move(p, src, self.finish)
+    def move_to_wait(self, p, src):
+        self.move(p, src, self.waiting)
 
     def add_incoming(self, p):
         self.incoming.append(p)
