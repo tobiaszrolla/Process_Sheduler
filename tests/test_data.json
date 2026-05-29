@@ -1,0 +1,57 @@
+[
+    {
+        "pid": 0,
+        "arrival_time": 3,
+        "cpu_bursts": [
+            3,
+            3
+        ],
+        "io_bursts": [
+            3
+        ]
+    },
+    {
+        "pid": 1,
+        "arrival_time": 1,
+        "cpu_bursts": [
+            5,
+            1
+        ],
+        "io_bursts": [
+            1
+        ]
+    },
+    {
+        "pid": 2,
+        "arrival_time": 2,
+        "cpu_bursts": [
+            5,
+            2
+        ],
+        "io_bursts": [
+            4
+        ]
+    },
+    {
+        "pid": 3,
+        "arrival_time": 3,
+        "cpu_bursts": [
+            4,
+            2
+        ],
+        "io_bursts": [
+            2
+        ]
+    },
+    {
+        "pid": 4,
+        "arrival_time": 2,
+        "cpu_bursts": [
+            3,
+            5
+        ],
+        "io_bursts": [
+            4
+        ]
+    }
+]

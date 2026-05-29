@@ -4,12 +4,11 @@ from src.models.process import ProcessState, Process
 from src.simulation.io import execute_io_step
 from src.simulation.cpu import execute_cpu_step
 class ShedulingEngin():
-    def __init__(self ,algoritm: ShedulingAlgorithm, max_time: int, process_list: ProcessList, start_time=0, quantum=10):
+    def __init__(self ,algoritm: ShedulingAlgorithm, max_time: int, process_list: ProcessList, start_time=0):
         self.algoritm = algoritm
         self.max_time = max_time
         self.process_list = process_list
         self.time = start_time
-        self.time = quantum
         
     
     def moveIncomingToReady(self):
@@ -60,8 +59,16 @@ class ShedulingEngin():
             )
             
     def run(self):
-        for i in range(self.max_time):
-            a =1
+        while self.time <= self.max_time:
+            self.moveIncomingToReady()
+            p = self.algoritm.choose(self.process_list.ready)
+            if p is not None:
+                self.cpuStep(p)
+                print(p.pid)
+                print(p.cpu_bursts)       
+            self.wait()
+            self.time += 1
+            
 
         
 
