@@ -42,11 +42,10 @@ class ShedulingEngin():
                 )
 
 
-    def cpuStep(self, p: Process):
-
-        execute_cpu_step(p, self.time)
-
-        if p.state == ProcessState.WAITING:
+    def move_executed_process(self, p: Process):
+        if p == None:
+            return
+        elif p.state == ProcessState.WAITING:
             self.process_list.move_to_wait(
                 p,
                 self.process_list.ready
@@ -59,15 +58,17 @@ class ShedulingEngin():
             )
             
     def run(self):
-        while self.time <= self.max_time:
+        while self.time < self.max_time:
             self.moveIncomingToReady()
             p = self.algoritm.choose(self.process_list.ready)
             if p is not None:
-                self.cpuStep(p)
+                execute_cpu_step(p, self.time)
+                print(self.time)
                 print(p.pid)
-                print(p.cpu_bursts)       
+                print(p.cpu_bursts)
+            self.time += 1       
             self.wait()
-            self.time += 1
+            self.move_executed_process(p)
             
 
         
