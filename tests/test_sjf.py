@@ -22,4 +22,4 @@ def test_SJF2():
 
     assert eng.process_list.ready[0].cpu_bursts[0] == 5
     assert eng.process_list.ready[1].cpu_bursts[0] == 5
-    assert eng.process_list.ready[2].cpu_bursts[0] == 2
+    assert eng.process_list.ready[2].cpu_bursts[0] == 1

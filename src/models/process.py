@@ -24,7 +24,8 @@ class Process:
         start_time: First time process gets CPU
         completion_time: Time when process finishes execution
         waiting_time: Total time spent waiting in ready queue
-        response_time: Time from arrival to first CPU access
+        response_time: Time from arrival to first CPU access "pl czas odpowiedzi"
+        turamount_time: Time from arrive to complition "pl czas cyklu przetwarzania"
     """
     pid: int
     arrival_time: int
@@ -35,6 +36,8 @@ class Process:
     start_time: int = field(default=None)
     completion_time: int = field(default=None)
     response_time: int = field(default=None)
+    turnaround_time: int = field(default=None)
+    waiting_time: int = field(default=0)
 
     state: ProcessState = ProcessState.READY
 

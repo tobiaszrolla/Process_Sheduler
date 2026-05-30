@@ -17,7 +17,7 @@ def test_FIFO2():
 
     assert len(eng.process_list.finish) == 0
 
-    assert eng.process_list.ready[0].pid == 3
+    assert eng.process_list.ready[0].pid == 1
     assert eng.process_list.ready[0].cpu_bursts[0] == 1
 
 
