@@ -27,16 +27,31 @@ For the execution engine, you can configure:
 ## How to Run
 
 1. Clone the repository
+
 2. Create a virtual environment:
-   ```bash
-   python -m venv path/to/venv
+    ```bash
+    python -m venv path/to/venv
+    ```
+
 3. Activate the virtual environment:
+
     Linux/Mac:
-        source venv/bin/activate
+    ```bash
+    source venv/bin/activate
+    ```
+
     Windows:
-        venv\Scripts\activate
+    ```bash
+    venv\Scripts\activate
+    ```
+
 4. Install dependencies:
+    ```bash
     pip install -r requirements.txt
+    ```
+
 5. Run app:
+    ```bash
     python main.py
+    ```
     
