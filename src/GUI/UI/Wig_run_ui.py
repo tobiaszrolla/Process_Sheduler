@@ -73,11 +73,14 @@ class Ui_Wig_run(object):
 
         self.SpinBox_StartTime = QSpinBox(self.widget_2)
         self.SpinBox_StartTime.setObjectName(u"SpinBox_StartTime")
+        self.SpinBox_StartTime.setMaximum(1000000)
 
         self.verticalLayout_2.addWidget(self.SpinBox_StartTime)
 
         self.SpinBox_finishTime = QSpinBox(self.widget_2)
         self.SpinBox_finishTime.setObjectName(u"SpinBox_finishTime")
+        self.SpinBox_finishTime.setMinimum(1)
+        self.SpinBox_finishTime.setMaximum(1000000)
 
         self.verticalLayout_2.addWidget(self.SpinBox_finishTime)
 

@@ -5,6 +5,9 @@ from src.models.processList import ProcessList
 from src.data_prep.data_load_incoming import loadIncomingData
 from src.engin.sheduling_engin import ShedulingEngin
 from src.algorithm.Algorithms import ShedulingAlgorithm, RoundRobinAlgorithm, FCFSalgorithm, SJFalgorithm, LCSFalgorithm
+from src.engin.calculate_metrics import CalculateMetrics
+from src.results.save_raw_result import saveRawResult
+from src.results.save_raw_metrics import saveRawMetrics
 
 class Wig_Run(QWidget):
     def __init__(self):
@@ -12,12 +15,16 @@ class Wig_Run(QWidget):
         self.ui = Ui_Wig_run()
         self.ui.setupUi(self)
         self.proces_list : ProcessList | None = None
+        self.metrics : CalculateMetrics | None = None
 
         self.ui.Butt_SourceFile.clicked.connect(
             self.load
         )
         self.ui.Button_Run.clicked.connect(
             self.run
+        )
+        self.ui.Button_Save.clicked.connect(
+            self.save_result
         )
 
     def load(self):
@@ -34,6 +41,11 @@ class Wig_Run(QWidget):
         if self.proces_list is None:
             QMessageBox.warning(self, "Err", "No process loaded")
             return
+        start_time = self.ui.SpinBox_StartTime.value() 
+        finish_time = self.ui.SpinBox_finishTime.value()
+        if start_time > finish_time:
+            QMessageBox.warning(self, "Err", "Start time have to be smaller than finish time")
+            return
         algorithm = ShedulingAlgorithm()
         algorithm_name = self.ui.ComboBox_Algorithm.currentText()
         if algorithm_name == 'Round Robin':
@@ -44,5 +56,39 @@ class Wig_Run(QWidget):
             algorithm = LCSFalgorithm()
         elif algorithm_name == 'SJF':
             algorithm = SJFalgorithm()
+        engin = ShedulingEngin(
+                                algorithm,
+                                finish_time,
+                                self.proces_list,
+                                start_time
+                                )
+        engin.run()
+        self.metrics = engin.metrics
+        self.proces_list = engin.process_list
+        QMessageBox.information(self,"Sucess","Algorithm have been executed")
+
+    def save_result(self):
+        if self.proces_list is None or self.metrics is None:
+            QMessageBox.warning(self, "Err", "You have to load file and run algoritm")
+            return
+        reslult_file_path, _ = QFileDialog.getSaveFileName(
+                                                    self,
+                                                    "Save process group",
+                                                    "result.json",
+                                                    "JSON Files (*.json)"
+                                                )
+        
+        metrics_file_path, _ = QFileDialog.getSaveFileName(
+                                                    self,
+                                                    "Save Metrics",
+                                                    "metrics.json",
+                                                    "JSON Files (*.json)"
+                                                )
+        saveRawResult(self.proces_list, reslult_file_path)
+        saveRawMetrics(self.metrics, metrics_file_path)
+
+
+
+        
         
 

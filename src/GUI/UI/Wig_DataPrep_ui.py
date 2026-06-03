@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QSizePolicy, QWidget)
 
-from MyWigets import (Wig_DataCreate, Wig_DataMergeSave)
+from .MyWigets import (Wig_DataCreate, Wig_DataMergeSave)
 
 class Ui_Wig_DataPrep(object):
     def setupUi(self, Wig_DataPrep):

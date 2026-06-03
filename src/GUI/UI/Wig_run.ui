@@ -90,10 +90,21 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="SpinBox_StartTime"/>
+          <widget class="QSpinBox" name="SpinBox_StartTime">
+           <property name="maximum">
+            <number>1000000</number>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="SpinBox_finishTime"/>
+          <widget class="QSpinBox" name="SpinBox_finishTime">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>1000000</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>

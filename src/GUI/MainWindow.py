@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.addWidget(self.run_widget)
         self.ui.stackedWidget.addWidget(self.data_widget)
 
+        #defoult wigget run
         self.ui.stackedWidget.setCurrentWidget(self.run_widget)
 
         self.ui.actionCreator.triggered.connect(
