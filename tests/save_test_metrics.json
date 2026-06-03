@@ -1,0 +1,9 @@
+[
+     {
+          "avr_turnaround_time": 13.0,
+          "avr_response_time": 5.25,
+          "avr_waiting_time": 10.4,
+          "throughput": 0.1,
+          "fairnes": 5.535341001239219
+     }
+]

@@ -12,6 +12,6 @@ def test_SJF():
     assert eng.metrics.avr_response_time == 5.25
     assert eng.metrics.avr_waiting_time == 10.4
     assert eng.metrics.throughput == 0.1
-    assert eng.metrics.fairness == 5.535341001239219
+    assert eng.metrics.fairnes == 5.535341001239219
 
 

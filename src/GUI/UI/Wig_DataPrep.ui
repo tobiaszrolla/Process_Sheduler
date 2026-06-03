@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Wig_DataPrep</class>
+ <widget class="QWidget" name="Wig_DataPrep">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>807</width>
+    <height>584</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="Wig_DataCreate" name="wig_create" native="true"/>
+   </item>
+   <item>
+    <widget class="Wig_DataMergeSave" name="wig_merge_save" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Wig_DataCreate</class>
+   <extends>QWidget</extends>
+   <header>MyWigets.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Wig_DataMergeSave</class>
+   <extends>QWidget</extends>
+   <header>MyWigets.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

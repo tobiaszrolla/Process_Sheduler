@@ -1,33 +1,16 @@
 import sys
-from PySide6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout
+from PySide6.QtWidgets import QApplication
 
-def change_button_text():
-    button.setText("Button has been clicked")
+from src.GUI.Wig_Run import Wig_Run
+from src.GUI.Wig_DataPrep import Wig_DataPrep
+from src.GUI.MainWindow import MainWindow
 
 
-if __name__ == '__main__':
-    
+
+if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    widget = QWidget()
-
-    v_layout = QVBoxLayout()
-
-    label = QLabel("Sample label")
-
-    button = QPushButton("Button")
-    button.clicked.connect(change_button_text)
-    
-    v_layout.addWidget(label)
-    v_layout.addWidget(button)
-
-    widget.setLayout(v_layout)
-
-    widget.show()
-
-    with open("theme.qss", "r") as f_obj:
-        theme = f_obj.read()
-
-    app.setStyleSheet(theme)
+    window = MainWindow()
+    window.show()
 
     sys.exit(app.exec())

@@ -66,7 +66,7 @@ class CalculateMetrics():
 
         for p in ready:
             times.append(p.waiting_time)
-            self.fairness = statistics.pstdev(times)
+            self.fairnes = statistics.pstdev(times)
     
     def calculate(self, processes: ProcessList, total_time: int):
        self.avrTurnaroundTime(processes)

@@ -1,0 +1,5 @@
+from src.algorithm.fcfs_algorithm import FCFSalgorithm
+from src.algorithm.sheduling_algorithm import ShedulingAlgorithm
+from src.algorithm.round_robin_algorithm import RoundRobinAlgorithm
+from src.algorithm.lcsf_algorithm import LCSFalgorithm
+from src.algorithm.sjf_algorithm import SJFalgorithm
