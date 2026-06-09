@@ -8,6 +8,7 @@ from src.algorithm.Algorithms import ShedulingAlgorithm, RoundRobinAlgorithm, FC
 from src.engin.calculate_metrics import CalculateMetrics
 from src.results.save_raw_result import saveRawResult
 from src.results.save_raw_metrics import saveRawMetrics
+from copy import deepcopy
 
 class Wig_Run(QWidget):
     def __init__(self):
@@ -16,6 +17,7 @@ class Wig_Run(QWidget):
         self.ui.setupUi(self)
         self.proces_list : ProcessList | None = None
         self.metrics : CalculateMetrics | None = None
+        self.original_process_list : ProcessList
 
         self.ui.Butt_SourceFile.clicked.connect(
             self.load
@@ -35,7 +37,8 @@ class Wig_Run(QWidget):
                                                 "JSON Files (*.json)"
         )
         file_path = files[0]
-        self.proces_list = loadIncomingData(file_path)
+        self.original_process_list = loadIncomingData(file_path)
+        self.proces_list = deepcopy(self.original_process_list)
 
     def run(self):
         if self.proces_list is None:
@@ -56,6 +59,7 @@ class Wig_Run(QWidget):
             algorithm = LCSFalgorithm()
         elif algorithm_name == 'SJF':
             algorithm = SJFalgorithm()
+        self.proces_list = deepcopy(self.original_process_list)
         engin = ShedulingEngin(
                                 algorithm,
                                 finish_time,

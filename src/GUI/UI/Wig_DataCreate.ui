@@ -99,16 +99,32 @@
           <widget class="QWidget" name="Wig_values" native="true">
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QSpinBox" name="SpinBoxMaxIoTime"/>
+             <widget class="QSpinBox" name="SpinBoxMaxIoTime">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="SpinBoxMinIoTime"/>
+             <widget class="QSpinBox" name="SpinBoxMinIoTime">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="SpinBoxMaxCpuTime"/>
+             <widget class="QSpinBox" name="SpinBoxMaxCpuTime">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="SpinBoxMinCpuTime"/>
+             <widget class="QSpinBox" name="SpinBoxMinCpuTime">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QSpinBox" name="SpinBoxProcesNumb">
@@ -124,7 +140,11 @@
              <widget class="QSpinBox" name="SpinBoxIoBreak"/>
             </item>
             <item>
-             <widget class="QSpinBox" name="SpinBoxMaxArrivalTime"/>
+             <widget class="QSpinBox" name="SpinBoxMaxArrivalTime">
+              <property name="maximum">
+               <number>1000</number>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>

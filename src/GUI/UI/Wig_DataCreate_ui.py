@@ -95,21 +95,25 @@ class Ui_Wig_DataCreate(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.SpinBoxMaxIoTime = QSpinBox(self.Wig_values)
         self.SpinBoxMaxIoTime.setObjectName(u"SpinBoxMaxIoTime")
+        self.SpinBoxMaxIoTime.setMinimum(1)
 
         self.verticalLayout_2.addWidget(self.SpinBoxMaxIoTime)
 
         self.SpinBoxMinIoTime = QSpinBox(self.Wig_values)
         self.SpinBoxMinIoTime.setObjectName(u"SpinBoxMinIoTime")
+        self.SpinBoxMinIoTime.setMinimum(1)
 
         self.verticalLayout_2.addWidget(self.SpinBoxMinIoTime)
 
         self.SpinBoxMaxCpuTime = QSpinBox(self.Wig_values)
         self.SpinBoxMaxCpuTime.setObjectName(u"SpinBoxMaxCpuTime")
+        self.SpinBoxMaxCpuTime.setMinimum(1)
 
         self.verticalLayout_2.addWidget(self.SpinBoxMaxCpuTime)
 
         self.SpinBoxMinCpuTime = QSpinBox(self.Wig_values)
         self.SpinBoxMinCpuTime.setObjectName(u"SpinBoxMinCpuTime")
+        self.SpinBoxMinCpuTime.setMinimum(1)
 
         self.verticalLayout_2.addWidget(self.SpinBoxMinCpuTime)
 
@@ -127,6 +131,7 @@ class Ui_Wig_DataCreate(object):
 
         self.SpinBoxMaxArrivalTime = QSpinBox(self.Wig_values)
         self.SpinBoxMaxArrivalTime.setObjectName(u"SpinBoxMaxArrivalTime")
+        self.SpinBoxMaxArrivalTime.setMaximum(1000)
 
         self.verticalLayout_2.addWidget(self.SpinBoxMaxArrivalTime)
 

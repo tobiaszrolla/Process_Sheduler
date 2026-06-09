@@ -14,6 +14,8 @@ class Wig_DataPrep(QWidget):
         self.model = QStandardItemModel()
         self.filebrowser = QFileDialog()
         self.process_group_lists = []
+        self.model.clear()
+        self.process_group_lists = []
         self.ui.wig_create.ui.Button_CreateProcess.clicked.connect(
             self.createProcessList
         )
@@ -24,6 +26,7 @@ class Wig_DataPrep(QWidget):
             self.merge_mix
         )
         self.ui.wig_merge_save.ui.View_ProcessGroups.setModel(self.model)
+        
 
 
     def createProcessList(self):
@@ -87,11 +90,14 @@ class Wig_DataPrep(QWidget):
         for p in self.process_group_lists:
             new_process = new_process.merge(p)
         new_process.shuffle_incoming()
-        self.process_group_lists = []
+        self.clear_processes()
         self.process_group_lists.append(new_process)
-        self.model.clear()
         self.model.appendRow(QStandardItem("Process Group 1"))
-        
+
+
+    def clear_processes(self):
+        self.process_group_lists.clear()
+        self.model.clear()       
 
 
                

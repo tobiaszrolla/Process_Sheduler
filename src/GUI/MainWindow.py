@@ -20,11 +20,52 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.run_widget)
 
         self.ui.actionCreator.triggered.connect(
-            lambda: self.ui.stackedWidget.setCurrentWidget(self.data_widget)
+            self.show_runner
         )
 
         self.ui.actionRunner.triggered.connect(
+
             lambda: self.ui.stackedWidget.setCurrentWidget(self.run_widget)
         )
+
+    from .UI.MainWindow_ui import Ui_MainWindow
+from PySide6.QtWidgets import QMainWindow
+from src.GUI.Wig_Run import Wig_Run
+from src.GUI.Wig_DataPrep import Wig_DataPrep
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        self.run_widget = Wig_Run()
+        self.data_widget = Wig_DataPrep()
+
+        self.ui.stackedWidget.addWidget(self.run_widget)
+        self.ui.stackedWidget.addWidget(self.data_widget)
+
+        #defoult wigget run
+        self.ui.stackedWidget.setCurrentWidget(self.run_widget)
+
+        self.ui.actionCreator.triggered.connect(
+            self.show_creator
+        )
+
+        self.ui.actionRunner.triggered.connect(
+
+            self.show_runner
+        )
+
+    def show_creator(self):
+        self.ui.stackedWidget.setCurrentWidget(self.data_widget)
+
+    def show_runner(self):
+        self.data_widget.clear_processes()
+        self.ui.stackedWidget.setCurrentWidget(self.run_widget)
+
+
+
 
 
